@@ -12,6 +12,7 @@ numpy to use this program
 
 clone or download
 run
+
 python3 simplex.py
 
 only console usage of the program is available yet
