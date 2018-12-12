@@ -21,3 +21,5 @@ only console usage of the program is available yet
 The simplex tableaus are drawn in form of python list.
 
 live demo is available at https://www.youtube.com/watch?v=6vZRUVN1EQU&t=50s
+
+![alt text](https://github.com/kimutaiRop/EKR-SIMPLEX-PROBLEM-CALCULATOR/blob/master/Screenshot%20from%202018-12-12%2017-58-27.png)
