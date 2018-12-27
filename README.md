@@ -13,11 +13,11 @@ numpy to use this program
 
 data values supported can be in the following forms
 
-    fractions
+    fractions. eg. (2/3)
   
-    decimal numbers
+    decimal numbers. eg. 0.5
   
-    whole numbers
+    whole numbers. eg. 100
   
 I also added notification for those problems that dont possibly have solution due to wrong formulation of constrains and its values.
 
