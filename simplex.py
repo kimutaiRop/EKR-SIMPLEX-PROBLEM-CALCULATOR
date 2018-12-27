@@ -1,5 +1,6 @@
 import sys
 import numpy as np
+from fractions import Fraction
 
 product_names = []
 const_names = []
@@ -11,6 +12,11 @@ x = 'X'
 z2_equation = []
 removable_vars = []
 
+no_soluton = """
+Check again the formulation of constrains,
+your problem might not be having solutiom due to wrong 
+formulation of contrains
+            """
 
 def main():
     global const_num, prod_nums
@@ -50,6 +56,14 @@ what type of problem do you want to solve?
         
         example: computers - X1
                  printers  - X2
+
+        you can use: - whole numbers
+                     - decimal numbers
+                     - fractions
+                Entering the value you are prompted to. the decimal are not 
+                rounded off on entering. this ensures high accuracy.
+                for recurring and long fractions, ie. (1/3). the decimal places are ronded of 
+                to default of python
          
         you are advised to use values less than 10000000
         you can standardize the data by dividing it to small values
@@ -125,10 +139,10 @@ what type of problem do you want to solve?
     if prob_type == 1:
         for i in const_names:
             try:
-                val = int(input("enter the value of %s in Z equation: >" % i))
+                val = float(Fraction(input("enter the value of %s in Z equation: >" % i)))
             except:
                 print("please enter a number")
-                val = int(input("enter the value of %s in Z equation: >" % i))
+                val = float(Fraction(input("enter the value of %s in Z equation: >" % i)))
             z_equation.append(0 - int(val))
         z_equation.append(0)
 
@@ -138,12 +152,12 @@ what type of problem do you want to solve?
         for prod in product_names:
             for const in const_names:
                 try:
-                    val = int(input("enter the value of %s in %s: >" % (const, prod)))
+                    val = float(Fraction(input("enter the value of %s in %s: >" % (const, prod))))
                 except:
                     print("please ensure you enter a number")
-                    val = int(input("enter the value of %s in %s: >" % (const, prod)))
+                    val = float(Fraction(input("enter the value of %s in %s: >" % (const, prod))))
                 col_values.append(val)
-            equate_prod = int(input('equate %s to: >' % prod))
+            equate_prod = float(Fraction(input('equate %s to: >' % prod)))
             col_values.append(equate_prod)
 
         final_cols = stdz_rows(col_values)
@@ -168,10 +182,10 @@ what type of problem do you want to solve?
     elif prob_type == 2:
         for i in const_names:
             try:
-                val = int(input("enter the value of %s in Z equation: >" % i))
+                val = float(Fraction(input("enter the value of %s in Z equation: >" % i)))
             except:
                 print("please enter a number")
-                val = int(input("enter the value of %s in Z equation: >" % i))
+                val = float(Fraction(input("enter the value of %s in Z equation: >" % i)))
             z_equation.append(val)
         z_equation.append(0)
 
@@ -181,12 +195,12 @@ what type of problem do you want to solve?
         for prod in product_names:
             for const in const_names:
                 try:
-                    val = int(input("enter the value of %s in %s: >" % (const, prod)))
+                    val = float(Fraction(input("enter the value of %s in %s: >" % (const, prod))))
                 except:
                     print("please ensure you enter a number")
-                    val = int(input("enter the value of %s in %s: >" % (const, prod)))
+                    val = float(Fraction(input("enter the value of %s in %s: >" % (const, prod))))
                 col_values.append(val)
-            equate_prod = int(input('equate %s to: >' % prod))
+            equate_prod = float(Fraction(input('equate %s to: >' % prod)))
             col_values.append(equate_prod)
 
         final_cols = stdz_rows2(col_values)
@@ -239,7 +253,8 @@ def maximization(final_cols, final_rows):
         print(solutions[i], cols)
         i += 1
     count = 2
-    while min_last_col < 0 and min_manager == 1:
+    pivot_element = 2
+    while min_last_col < 0 and min_manager == 1 and pivot_element >0:
         print("*********************************************************")
         last_col = final_cols[-1]
         last_row = final_rows[-1]
@@ -320,6 +335,31 @@ def maximization(final_cols, final_rows):
         last_col = final_cols[-1]
         min_last_col = min(last_col)
         count += 1
+        last_col = final_cols[-1]
+        last_row = final_rows[-1]
+        min_last_col = min(last_col)
+        index_of_min = last_col.index(min_last_col)
+        pivot_row = final_rows[index_of_min]
+        index_pivot_row = final_rows.index(pivot_row)
+        row_div_val = []
+        i = 0
+        for _ in last_row[:-1]:
+            try:
+                val = float(last_row[i] / pivot_row[i])
+                if val <= 0:
+                    val = 10000000000
+                else:
+                    val = val
+                row_div_val.append(val)
+            except ZeroDivisionError:
+                val = 10000000000
+                row_div_val.append(val)
+            i += 1
+        min_div_val = min(row_div_val)
+        index_min_div_val = row_div_val.index(min_div_val)
+        pivot_element = pivot_row[index_min_div_val]
+        if pivot_element < 0:
+            print(no_soluton)
 
 
 def minimization(final_cols, final_rows):
@@ -335,7 +375,8 @@ def minimization(final_cols, final_rows):
         print(solutions[i], cols)
         i += 1
     count = 2
-    while min_last_col < 0 and min_manager == 1:
+    pivot_element =2
+    while min_last_col < 0 and min_manager == 1 and pivot_element >0:
         print("*********************************************************")
         last_col = final_cols[-1]
         last_row = final_rows[-1]
@@ -435,6 +476,31 @@ def minimization(final_cols, final_rows):
                 a += 1
         except:
             pass
+        last_col = final_cols[-1]
+        last_row = final_rows[-1]
+        min_last_col = min(last_col[:-1])
+        index_of_min = last_col.index(min_last_col)
+        pivot_row = final_rows[index_of_min]
+        index_pivot_row = final_rows.index(pivot_row)
+        row_div_val = []
+        i = 0
+        for _ in last_row[:-2]:
+            try:
+                val = float(last_row[i] / pivot_row[i])
+                if val <= 0:
+                    val = 10000000000
+                else:
+                    val = val
+                row_div_val.append(val)
+            except ZeroDivisionError:
+                val = 10000000000
+                row_div_val.append(val)
+            i += 1
+        min_div_val = min(row_div_val)
+        index_min_div_val = row_div_val.index(min_div_val)
+        pivot_element = pivot_row[index_min_div_val]
+        if pivot_element < 0:
+            print(no_soluton)
 
 
 def stdz_rows2(column_values):
