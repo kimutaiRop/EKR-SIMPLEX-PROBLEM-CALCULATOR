@@ -2,7 +2,7 @@
 
 This is a simplex problem calculator for statistics
 
-problems it solve
+problems it solves:
   1. maximization
   2. minimization
  
@@ -11,18 +11,14 @@ you need to install
 numpy to use this program
 
 
-data values supported can be in the following forms
-
-    fractions. eg. (2/3)
-  
-    decimal numbers. eg. 0.5
-  
-    whole numbers. eg. 100
+data values supported can be in the following forms:
+  1. fractions. eg. (2/3)
+  2. decimal numbers. eg. 0.5
+  3. whole numbers. eg. 100
   
 I also added notification for those problems that dont possibly have solution due to wrong formulation of constrains and its values.
 
-clone or download
-run
+clone or download then run:
 
 `python3 simplex.py`
 
