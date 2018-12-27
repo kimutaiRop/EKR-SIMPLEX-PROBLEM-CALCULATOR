@@ -10,13 +10,14 @@ you can use this to draw tables
 you need to install
 numpy to use this program
 
+
 data values supported can be in the following forms
 
-  fractions
+    fractions
   
-  decimal numbers
+    decimal numbers
   
-  whole numbers
+    whole numbers
   
 I also added notification for those problems that dont possibly have solution due to wrong formulation of constrains and its values.
 
