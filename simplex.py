@@ -69,9 +69,9 @@ what type of problem do you want to solve?
         you can standardize the data by dividing it to small values
         and re-converting after getting solution
          
-        big values are used for slag in this program.
+        big values are used for slack in this program.
         so using big values may lead to confusion of data with the
-        slag variables in some cases
+        slack variables in some cases
           
         
         ----- assumptions -----
