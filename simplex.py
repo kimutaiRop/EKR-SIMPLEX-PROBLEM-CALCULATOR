@@ -12,11 +12,15 @@ x = 'X'
 z2_equation = []
 removable_vars = []
 
-no_soluton = """
-Check again the formulation of constrains,
-your problem might not be having solutiom due to wrong 
-formulation of contrains
+no_solution = """
+        ---unboundedness ----
+Your problem might not be having solution due to wrong 
+formulation of constrains,
+
+This mostly occurs when you leave out some relevant constrains 
+please check again the formulation of constrains
             """
+
 
 def main():
     global const_num, prod_nums
@@ -211,7 +215,7 @@ what type of problem do you want to solve?
             i += 1
         solutions.append(' Z')
         solutions[:] = []
-        add_from = len(const_names)+1
+        add_from = len(const_names) + 1
         while len(const_names) < len(final_cols[0][:-1]):
             removable_vars.append('X' + str(add_from))
             const_names.append('X' + str(add_from))
@@ -254,7 +258,7 @@ def maximization(final_cols, final_rows):
         i += 1
     count = 2
     pivot_element = 2
-    while min_last_col < 0 and min_manager == 1 and pivot_element >0:
+    while min_last_col < 0 and min_manager == 1 and pivot_element > 0:
         print("*********************************************************")
         last_col = final_cols[-1]
         last_row = final_rows[-1]
@@ -359,7 +363,7 @@ def maximization(final_cols, final_rows):
         index_min_div_val = row_div_val.index(min_div_val)
         pivot_element = pivot_row[index_min_div_val]
         if pivot_element < 0:
-            print(no_soluton)
+            print(no_solution)
 
 
 def minimization(final_cols, final_rows):
@@ -375,8 +379,8 @@ def minimization(final_cols, final_rows):
         print(solutions[i], cols)
         i += 1
     count = 2
-    pivot_element =2
-    while min_last_col < 0 and min_manager == 1 and pivot_element >0:
+    pivot_element = 2
+    while min_last_col < 0 and min_manager == 1 and pivot_element > 0:
         print("*********************************************************")
         last_col = final_cols[-1]
         last_row = final_rows[-1]
@@ -500,7 +504,7 @@ def minimization(final_cols, final_rows):
         index_min_div_val = row_div_val.index(min_div_val)
         pivot_element = pivot_row[index_min_div_val]
         if pivot_element < 0:
-            print(no_soluton)
+            print(no_solution)
 
 
 def stdz_rows2(column_values):
@@ -514,11 +518,10 @@ def stdz_rows2(column_values):
         b += 1
 
     for cols in final_cols:
-        while len(cols) < (const_num + (2*prod_nums)-1):
+        while len(cols) < (const_num + (2 * prod_nums) - 1):
             cols.insert(-1, 0)
 
-
-    i= const_num
+    i = const_num
     for sub_col in final_cols:
         sub_col.insert(i, -1)
         z2_equation.insert(-1, 1)
@@ -550,8 +553,6 @@ def stdz_rows(column_values):
 if __name__ == "__main__":
     main()
 
-
 # I use python list in most of this program
 # At some point python arrays are also used
 # Python has a strong power in list manipulation than you could even imagine
-
