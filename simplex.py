@@ -258,7 +258,7 @@ def maximization(final_cols, final_rows):
         i += 1
     count = 2
     pivot_element = 2
-    while min_last_col < 0 and min_manager == 1 and pivot_element > 0:
+    while min_last_col < 0 < pivot_element and min_manager == 1:
         print("*********************************************************")
         last_col = final_cols[-1]
         last_row = final_rows[-1]
@@ -289,7 +289,7 @@ def maximization(final_cols, final_rows):
         index_pivot_elem = pivot_col.index(pivot_element)
         for col in final_cols:
             if col is not pivot_col and col is not final_cols[-1]:
-                form = col[index_pivot_elem] / pivot_element
+                form = col[index_of_min] / pivot_element
                 i = 0
                 for elem in col:
                     value = (elem - float(form * pivot_col[i]))
@@ -300,7 +300,7 @@ def maximization(final_cols, final_rows):
                     value = float(elems / pivot_element)
                     row_app.append(round(value, 2))
             else:
-                form = abs(col[index_pivot_elem]) / pivot_element
+                form = abs(col[index_of_min]) / pivot_element
                 i = 0
                 for elem in col:
                     value = elem + float(form * pivot_col[i])
@@ -380,7 +380,7 @@ def minimization(final_cols, final_rows):
         i += 1
     count = 2
     pivot_element = 2
-    while min_last_col < 0 and min_manager == 1 and pivot_element > 0:
+    while min_last_col < 0 < pivot_element and min_manager == 1:
         print("*********************************************************")
         last_col = final_cols[-1]
         last_row = final_rows[-1]
@@ -411,7 +411,7 @@ def minimization(final_cols, final_rows):
         index_pivot_elem = pivot_col.index(pivot_element)
         for col in final_cols:
             if col is not pivot_col and col is not final_cols[-1]:
-                form = col[index_pivot_elem] / pivot_element
+                form = col[index_of_min] / pivot_element
                 i = 0
                 for elem in col:
                     value = (elem - float(form * pivot_col[i]))
@@ -422,7 +422,7 @@ def minimization(final_cols, final_rows):
                     value = float(elems / pivot_element)
                     row_app.append(round(value, 2))
             else:
-                form = abs(col[index_pivot_elem]) / pivot_element
+                form = abs(col[index_of_min]) / pivot_element
                 i = 0
                 for elem in col:
                     value = elem + float(form * pivot_col[i])
