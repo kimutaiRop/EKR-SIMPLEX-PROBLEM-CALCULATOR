@@ -20,8 +20,11 @@ I also added notification for those problems that dont possibly have solution du
 
 clone or download then run:
 
-`python3 simplex.py`
+`pip install numpy`
 
+`pip install pandas`
+
+`python3 simplex.py`
 
 only console usage of the program is available yet
 
