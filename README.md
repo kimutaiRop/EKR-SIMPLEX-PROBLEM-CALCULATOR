@@ -19,6 +19,7 @@ data values supported can be in the following forms:
 I also added notification for those problems that dont possibly have solution due to wrong formulation of constrains and its values.
 
 clone or download then run:
+
 to install basic requirements
 
 `pip install numpy`
