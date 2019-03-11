@@ -1,9 +1,12 @@
 import sys
 import numpy as np
 from fractions import Fraction
+try:
+	import pandas as pd
+except:
+	pass
 
 product_names = []
-const_names = []
 col_values = []
 z_equation = []
 final_rows = []
@@ -44,6 +47,13 @@ what type of problem do you want to solve?
         print(r"""
         --HELP:
         USING SIMPLEX CALCULATOR
+        
+        ----- requirements -----
+        
+        1 -> python - install python (https://www.python.org)
+        2 -> pip    - install pip (google for your Operating System)
+        3 -> numpy  - pip install numpy  - required!!
+        4 -> pandas - pip install pandas - optional - makes the tableus more beautiful and orderly
         
         ----- choices -----
         
@@ -130,14 +140,13 @@ what type of problem do you want to solve?
         """)
         sys.exit()
     print('\n##########################################')
+    global const_names
     const_num = int(input("how many products do you have: >"))
     prod_nums = int(input("how many constrains do you have: >"))
-    for i in range(1, const_num + 1):
-        val = x + str(i)
-        const_names.append(val)
+    const_names = [x + str(i) for i in range(1,const_num + 1)]
 
     for i in range(1, prod_nums + 1):
-        prod_val = input("enter constrain %d name: >" % i)
+        prod_val = input("enter constrain {} name: >" .format(i))
         product_names.append(prod_val)
     print("__________________________________________________")
     if prob_type == 1:
@@ -248,22 +257,27 @@ def maximization(final_cols, final_rows):
     row_app = []
     final_new_row = []
     last_col = final_cols[-1]
-    min_last_col = min(last_col)
+    min_last_row = min(last_col)
     min_manager = 1
     print(" 1 TABLEAU")
-    print('  ', const_names)
-    i = 0
-    for cols in final_cols:
-        print(solutions[i], cols)
-        i += 1
+    try:
+    	fibal_pd = pd.DataFrame(np.array(final_cols), columns=const_names, index=solutions)
+    	print(fibal_pd)
+    except:
+	    print("%d TABLEAU" % count)
+	    print('  ', const_names)
+	    i = 0
+	    for cols in final_cols:
+	        print(solutions[i], cols)
+	        i += 1
     count = 2
     pivot_element = 2
-    while min_last_col < 0 < pivot_element and min_manager == 1:
+    while min_last_row < 0 < pivot_element != 1 and min_manager == 1:
         print("*********************************************************")
         last_col = final_cols[-1]
         last_row = final_rows[-1]
-        min_last_col = min(last_col)
-        index_of_min = last_col.index(min_last_col)
+        min_last_row = min(last_col)
+        index_of_min = last_col.index(min_last_row)
         pivot_row = final_rows[index_of_min]
         index_pivot_row = final_rows.index(pivot_row)
         row_div_val = []
@@ -331,18 +345,23 @@ def maximization(final_cols, final_rows):
         solutions[index_pivot_col] = const_names[index_pivot_row]
 
         print(" %d TABLEAU" % count)
-        print('  ', const_names)
-        i = 0
-        for cols in final_cols:
-            print(solutions[i], cols)
-            i += 1
+        try:
+        	fibal_pd = pd.DataFrame(np.array(final_cols), columns=const_names, index=solutions)
+        	print(fibal_pd)
+        except:
+        	print("%d TABLEAU" % count)
+        	print('  ', const_names)
+        	i = 0
+        	for cols in final_cols:
+        		print(solutions[i], cols)
+        		i += 1
         last_col = final_cols[-1]
-        min_last_col = min(last_col)
+        min_last_row = min(last_col)
         count += 1
         last_col = final_cols[-1]
         last_row = final_rows[-1]
-        min_last_col = min(last_col)
-        index_of_min = last_col.index(min_last_col)
+        min_last_row = min(last_col)
+        index_of_min = last_col.index(min_last_row)
         pivot_row = final_rows[index_of_min]
         index_pivot_row = final_rows.index(pivot_row)
         row_div_val = []
@@ -370,22 +389,27 @@ def minimization(final_cols, final_rows):
     row_app = []
     final_new_row = []
     last_col = final_cols[-1]
-    min_last_col = min(last_col)
+    min_last_row = min(last_col)
     min_manager = 1
     print("1 TABLEAU")
-    print('  ', const_names)
-    i = 0
-    for cols in final_cols:
-        print(solutions[i], cols)
-        i += 1
+    try:
+    	fibal_pd = pd.DataFrame(np.array(final_cols), columns=const_names, index=solutions)
+    	print(fibal_pd)
+    except:
+	    print("%d TABLEAU" % count)
+	    print('  ', const_names)
+	    i = 0
+	    for cols in final_cols:
+	        print(solutions[i], cols)
+	        i += 1
     count = 2
     pivot_element = 2
-    while min_last_col < 0 < pivot_element and min_manager == 1:
+    while min_last_row < 0 < pivot_element  and min_manager == 1:
         print("*********************************************************")
         last_col = final_cols[-1]
         last_row = final_rows[-1]
-        min_last_col = min(last_col[:-1])
-        index_of_min = last_col.index(min_last_col)
+        min_last_row = min(last_col[:-1])
+        index_of_min = last_col.index(min_last_row)
         pivot_row = final_rows[index_of_min]
         index_pivot_row = final_rows.index(pivot_row)
         row_div_val = []
@@ -461,13 +485,17 @@ def minimization(final_cols, final_rows):
                 colms.remove(colms[idex_remove])
             const_names.remove(removable)
         print("%d TABLEAU" % count)
-        print('  ', const_names)
-        i = 0
-        for cols in final_cols:
-            print(solutions[i], cols)
-            i += 1
+        try:
+        	fibal_pd = pd.DataFrame(np.array(final_cols), columns=const_names, index=solutions)
+        	print(fibal_pd)
+        except:
+        	print('  ', const_names)
+        	i = 0
+        	for cols in final_cols:
+		        print(solutions[i], cols)
+		        i += 1
         last_col = final_cols[-1]
-        min_last_col = min(last_col)
+        min_last_row = min(last_col)
         count += 1
         cols_vals = np.array(final_cols)
         a = 0
@@ -482,8 +510,8 @@ def minimization(final_cols, final_rows):
             pass
         last_col = final_cols[-1]
         last_row = final_rows[-1]
-        min_last_col = min(last_col[:-1])
-        index_of_min = last_col.index(min_last_col)
+        min_last_row = min(last_col[:-1])
+        index_of_min = last_col.index(min_last_row)
         pivot_row = final_rows[index_of_min]
         index_pivot_row = final_rows.index(pivot_row)
         row_div_val = []
