@@ -16,6 +16,8 @@ data values supported can be in the following forms:
   2. decimal numbers. eg. 0.5
   3. whole numbers. eg. 100
   
+I allowed definition of number of decimals to be used in solution
+  
 I also added notification for those problems that dont possibly have solution due to wrong formulation of constrains and its values.
 
 clone or download then run:
