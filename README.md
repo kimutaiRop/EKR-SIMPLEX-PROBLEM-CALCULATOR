@@ -34,7 +34,7 @@ finally you can run the program by running
 
 only console usage of the program is available yet
 
-The simplex tableaus are drawn in form of python list.
+The simplex tableaus are drawn in form of python lists or pandas tables.
 
 live demo is available at https://www.youtube.com/watch?v=6vZRUVN1EQU&t=50s
 
