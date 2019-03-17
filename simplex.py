@@ -4,7 +4,9 @@ from fractions import Fraction
 
 try:
     import pandas as pd
+    pandas_av = True
 except ImportError:
+    pandas_av = False
     pass
 
 product_names = []
@@ -354,6 +356,11 @@ def maximization(final_cols, final_rows):
         pivot_element = pivot_row[index_min_div_val]
         if pivot_element < 0:
             print(no_solution)
+    if not pandas_av:
+        print("""
+        Please install pandas to make your tables look goog
+        install using command $pip install pandas 
+        """)
 
 
 def minimization(final_cols, final_rows):
@@ -473,6 +480,12 @@ def minimization(final_cols, final_rows):
         pivot_element = pivot_row[index_min_div_val]
         if pivot_element < 0:
             print(no_solution)
+
+    if not pandas_av:
+        print("""
+        Please install pandas to make your tables look goog
+        install using command $pip install pandas 
+        """)
 
 
 def stdz_rows2(column_values):
