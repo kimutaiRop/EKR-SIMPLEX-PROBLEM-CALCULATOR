@@ -358,7 +358,7 @@ def maximization(final_cols, final_rows):
             print(no_solution)
     if not pandas_av:
         print("""
-        Please install pandas to make your tables look goog
+        Please install pandas to make your tables look good
         install using command $pip install pandas 
         """)
 
@@ -483,7 +483,7 @@ def minimization(final_cols, final_rows):
 
     if not pandas_av:
         print("""
-        Please install pandas to make your tables look goog
+        Please install pandas to make your tables look good
         install using command $pip install pandas 
         """)
 
