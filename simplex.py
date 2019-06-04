@@ -114,7 +114,7 @@ what type of problem do you want to solve?
           
         The program has been tested with several examples but maybe all the exception 
         may not have been countered fully. using this program will be an alternative
-        you chose and so we I am not expecting a complain in failure to meet your expectation.
+        you chose and so we I am not expecting a complain in failure to meet your expectation as indicated in the LICENCE.
           
         #You can suggest additions or even send me bugs in the program in the email below.#
           
