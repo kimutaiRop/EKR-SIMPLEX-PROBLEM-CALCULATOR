@@ -1,5 +1,8 @@
 # EKR-SIMPLEX-CALCULATOR
 
+this is python version of the program, if you prefer julia you can find a copy of julia from
+https://github.com/kimutaiRop/JULIA_EKR_SIMPLEX_PROBLE_CALCULATOR
+
 This is a simplex problem calculator for statistics
 
 problems it solves:
@@ -30,7 +33,7 @@ to install basic requirements
 
 finally you can run the program by running
 
-`python3 simplex.py`
+`python3 simplex.py`https://pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/app-email-content.html#
 
 only console usage of the program is available yet
 
