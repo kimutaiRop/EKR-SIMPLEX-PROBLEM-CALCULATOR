@@ -33,7 +33,7 @@ to install basic requirements
 
 finally you can run the program by running
 
-`python3 simplex.py`https://pixinvent.com/materialize-material-design-admin-template/html/ltr/vertical-modern-menu-template/app-email-content.html#
+`python3 simplex.py`
 
 only console usage of the program is available yet
 
