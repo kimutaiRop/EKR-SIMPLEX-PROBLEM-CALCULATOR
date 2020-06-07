@@ -3,7 +3,7 @@
 this is python version of the program, if you prefer julia you can find a copy of julia from
 https://github.com/kimutaiRop/JULIA_EKR_SIMPLEX_PROBLE_CALCULATOR
 
-the julia version is also linked to a web whic is available in http://statis.herokuapp.com/
+the julia version is also linked to a web server which is available for download at https://github.com/kimutaiRop/statis
 
 This is a simplex problem calculator for statistics
 
