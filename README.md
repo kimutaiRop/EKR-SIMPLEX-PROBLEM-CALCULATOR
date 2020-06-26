@@ -4,6 +4,7 @@ this is python version of the program, if you prefer julia you can find a copy o
 https://github.com/kimutaiRop/JULIA_EKR_SIMPLEX_PROBLE_CALCULATOR
 
 the julia version is also linked to a web server which is available for download at https://github.com/kimutaiRop/statis
+which has a web iterface at https://statis.herokuapp.com/simplex
 
 This is a simplex problem calculator for statistics
 
