@@ -133,7 +133,7 @@ what type of problem do you want to solve?
         ----- developer -----
           
         developed by [ELPHAS KIMUTAI ROP] .
-        Student Bsc. Statistics and programming.
+        Graduate Bsc. Statistics and programming.
         Machakos University, Kenya.
         Email   : kimrop20@gmail.com
         Website : http://bestcoders.herokuapp.com
