@@ -104,7 +104,7 @@ what type of problem do you want to solve?
         
         ----- mixed simplex problem -----
           
-        I have not make a choice for mixed simplex problem and so for now 
+        I have not made a choice for mixed simplex problem and so for now 
         the program may not provide a solution for such problems
          
         ----- declaimer -----
