@@ -107,7 +107,7 @@ what type of problem do you want to solve?
         I have not made a choice for mixed simplex problem and so for now 
         the program may not provide a solution for such problems
          
-        ----- declaimer -----
+        ----- disclaimer -----
         
         Only the console  option of this program is available yet but the GUI might be available
         at some point and when available, I will update on how to use the GUI.
@@ -136,7 +136,7 @@ what type of problem do you want to solve?
         Graduate Bsc. Statistics and programming.
         Machakos University, Kenya.
         Email   : kimrop20@gmail.com
-        Website : http://bestcoders.herokuapp.com
+        Website : https://bestcoders.net
          
         
          
