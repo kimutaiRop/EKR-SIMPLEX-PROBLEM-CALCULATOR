@@ -158,7 +158,7 @@ what type of problem do you want to solve?
             except ValueError:
                 print("please enter a number")
                 val = float(Fraction(input("enter the value of %s in Z equation: >" % i)))
-            z_equation.append(0 - int(val))
+            z_equation.append(0 - val)
         z_equation.append(0)
 
         while len(z_equation) <= (const_num + prod_nums):
